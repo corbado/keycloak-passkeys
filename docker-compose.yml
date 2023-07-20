@@ -1,4 +1,5 @@
 version: '3'
+
 services:
   app:
     container_name: node-app
@@ -15,3 +16,12 @@ services:
     environment:
       PORT: 3000
       
+  keycloak:
+    image: quay.io/keycloak/keycloak:18.0.2
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    ports:
+      - "8080:8080"
+    command:
+      - start-dev
