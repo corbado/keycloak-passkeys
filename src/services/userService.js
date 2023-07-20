@@ -4,7 +4,7 @@ import { config as dotenvConfig } from "dotenv";
 dotenvConfig();
 
 const keycloakRealmName = process.env.KEYCLOAK_REALM_NAME;
-const keycloakAdminUsername = process.env.KEYCLOAK_ADMIN_USERNAME;
+const keycloakAdminUsername = process.env.KEYCLOAK_ADMIN;
 const keycloakAdminPassword = process.env.KEYCLOAK_ADMIN_PASSWORD;
 const keycloakBaseUrl = process.env.KEYCLOAK_BASE_URL;
 
