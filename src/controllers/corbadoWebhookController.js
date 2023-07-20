@@ -7,6 +7,7 @@ const config = new Configuration(projectID, apiSecret);
 const corbado = new SDK(config);
 
 async function getUserStatus(username) {
+  console.log("getUserStatus username: " + username);
   const user = await UserService.findByEmail(username);
   if (!user) {
     return "not_exists";
@@ -21,12 +22,12 @@ async function getUserStatus(username) {
 
 async function verifyPassword(username, password) {
   try {
-    const user = await UserService.findByEmail(username);
-    if (!user) {
-      return false;
-    }
+    //   const user = await UserService.findByEmail(username);
+    //   if (!user) {
+    //     return false;
+    //   }
 
-    const res = await UserService.verifyPassword(user.id, password);
+    const res = await UserService.verifyPassword(username, password);
     if (!res) {
       return false;
     }

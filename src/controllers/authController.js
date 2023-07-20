@@ -4,7 +4,6 @@ import { SDK, Configuration } from "@corbado/node-sdk";
 const projectID = process.env.PROJECT_ID;
 const apiSecret = process.env.API_SECRET;
 const config = new Configuration(projectID, apiSecret);
-config.frontendAPI = "https://pro-5530967235591612107.auth.corbado.com";
 const corbado = new SDK(config);
 
 export const home = (req, res) => {
@@ -22,6 +21,7 @@ export const logout = (req, res) => {
 export const profile = async (req, res) => {
   try {
     const { email, name } = await corbado.session.getCurrentUser(req);
+    console.log("email: " + email, " name: " + name);
     const user = await UserService.findByEmail(email);
     if (!user) {
       // Create new user
@@ -29,11 +29,11 @@ export const profile = async (req, res) => {
         if (u == null) {
           res.redirect("/logout");
         } else {
-          UserService.findById(u).then((userNew) => {
+          UserService.findByEmail(email).then((userNew) => {
             res.render("pages/profile", {
               username: userNew.email,
               userFullName: userNew.firstName,
-              supabaseID: userNew.id,
+              keycloakID: userNew.id,
             });
           });
         }
@@ -43,7 +43,7 @@ export const profile = async (req, res) => {
       res.render("pages/profile", {
         username: user.email,
         userFullName: user.firstName,
-        supabaseID: user.id,
+        keycloakID: user.id,
       });
     }
   } catch (err) {
