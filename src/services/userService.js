@@ -24,28 +24,33 @@ const adminAuth = async () => {
 
 export const create = async (username, userFullName) => {
   console.log("create email: " + username, " userFullName: " + userFullName);
+  var firstName = userFullName;
+  var lastName = "";
+  if (userFullName.includes(" ")) {
+    const split = userFullName.split(" ");
+    firstName = split[0];
+    lastName = userFullName.replace(firstName, "").trim();
+  }
   await adminAuth();
   const res = await kcAdminClient.users.create({
     realm: keycloakRealmName,
     username: username,
     email: username,
     enabled: true,
-    firstName: userFullName,
-    lastName: "Corbado",
+    firstName: firstName,
+    lastName: lastName,
     emailVerified: true,
+    attributes: {
+      isCorbadoUser: true,
+    },
   });
-
-  console.log("Reslt here: ");
   console.log(res);
   return res.id;
 };
 
 export const findByEmail = async (email) => {
-  console.log("findByEmail email: " + email);
   await adminAuth();
-  const users = await kcAdminClient.users.find({ q: "email:" + email });
-
-  console.log("Reslt here: ");
+  const users = await kcAdminClient.users.findOne({ email: email });
   console.log(users);
   if (users.length == 0) {
     return null;
@@ -54,17 +59,13 @@ export const findByEmail = async (email) => {
 };
 
 export const findById = async (userId) => {
-  console.log("findById id: ", userId);
   await adminAuth();
   const user = await kcAdminClient.users.findOne({ id: userId });
-
-  console.log("Result here: ");
   console.log(user);
   return user;
 };
 
 export const verifyPassword = async (name, password) => {
-  console.log("verifyPassword name: " + name, " password: " + password);
   try {
     const res = await kcAdminClient.auth({
       username: name,
@@ -72,7 +73,7 @@ export const verifyPassword = async (name, password) => {
       grantType: "password",
       clientId: "admin-cli",
     });
-    console.log("Result here: ", res);
+    console.log("Verify password result: ", res);
     return true;
   } catch (error) {
     console.log(error);

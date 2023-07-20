@@ -12,7 +12,10 @@ async function getUserStatus(username) {
   if (!user) {
     return "not_exists";
   }
-  const isCorbadoUser = user.lastName == "Corbado";
+  const isCorbadoUser =
+    user.attributes &&
+    user.attributes.isCorbadoUser &&
+    user.attributes.isCorbadoUser[0] === "true";
   if (isCorbadoUser) {
     return "not_exists";
   } else {
