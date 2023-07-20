@@ -39,6 +39,7 @@ Lastly, configure the [webhooks](https://app.corbado.com/app/settings/webhooks) 
 
 
 Use the values you obtained above to configure the following variables inside `.env`:
+The CLI secret is located [here](https://app.corbado.com/app/settings/credentials/cli-secret).
 
 1. **PROJECT_ID**=""
 2. **API_SECRET**=""
