@@ -29,7 +29,7 @@ export const profile = async (req, res) => {
         if (u == null) {
           res.redirect("/logout");
         } else {
-          UserService.findByEmail(email).then((userNew) => {
+          UserService.findById(u).then((userNew) => {
             res.render("pages/profile", {
               username: userNew.email,
               userFullName: userNew.firstName,

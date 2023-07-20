@@ -19,7 +19,6 @@ const adminAuth = async () => {
     password: keycloakAdminPassword,
     grantType: "password",
     clientId: "admin-cli",
-    // totp: "123456", // optional Time-based One-time Password if OTP is required in authentication flow
   });
 };
 
@@ -52,6 +51,16 @@ export const findByEmail = async (email) => {
     return null;
   }
   return users[0];
+};
+
+export const findById = async (userId) => {
+  console.log("findById id: ", userId);
+  await adminAuth();
+  const user = await kcAdminClient.users.findOne({ id: userId });
+
+  console.log("Result here: ");
+  console.log(user);
+  return user;
 };
 
 export const verifyPassword = async (name, password) => {
