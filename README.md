@@ -31,7 +31,7 @@ users are integrated using Corbado webhooks while new users are saved without a 
 
 ### 2.1. Configure environment variables
 
-Please follow steps 1-4 on our [Getting started](https://docs.corbado.com/overview/getting-started) page to create and configure a project in the [Corbado developer panel](https://app.corbado.com). Use `http://localhost:19915` as origin in step 4.
+Please follow steps 1-3 on our [Getting started](https://docs.corbado.com/overview/getting-started) page to create and configure a project in the [Corbado developer panel](https://app.corbado.com).
 
 Next, follow steps 4-6 on our [Web component guide](https://docs.corbado.com/integrations/web-component#4.-define-application-url) and set the Application URL to `http://localhost:19915/login`, the Redirect URL to `http://localhost:19915/profile` and the Relying Party ID to `localhost`.
 
