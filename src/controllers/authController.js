@@ -21,7 +21,9 @@ export const logout = (req, res) => {
 export const profile = async (req, res) => {
   try {
     const { email, name } = await corbado.session.getCurrentUser(req);
-    console.log("email: " + email, " name: " + name);
+    if (!email) {
+      res.redirect("/logout");
+    }
     const user = await UserService.findByEmail(email);
     if (!user) {
       // Create new user
