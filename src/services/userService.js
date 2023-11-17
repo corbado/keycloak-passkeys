@@ -23,7 +23,6 @@ const adminAuth = async () => {
 };
 
 export const create = async (username, userFullName) => {
-  console.log("create email: " + username, " userFullName: " + userFullName);
   var firstName = userFullName;
   var lastName = "";
   if (userFullName.includes(" ")) {
@@ -44,14 +43,12 @@ export const create = async (username, userFullName) => {
       isCorbadoUser: true,
     },
   });
-  console.log(res);
   return res.id;
 };
 
 export const findByEmail = async (email) => {
   await adminAuth();
   const users = await kcAdminClient.users.findOne({ email: email });
-  console.log(users);
   if (users.length == 0 || users[0].email != email) {
     return null;
   }
@@ -61,7 +58,6 @@ export const findByEmail = async (email) => {
 export const findById = async (userId) => {
   await adminAuth();
   const user = await kcAdminClient.users.findOne({ id: userId });
-  console.log(user);
   return user;
 };
 
@@ -73,7 +69,6 @@ export const verifyPassword = async (name, password) => {
       grantType: "password",
       clientId: "admin-cli",
     });
-    console.log("Verify password result: ", res);
     return true;
   } catch (error) {
     console.log(error);
