@@ -52,7 +52,7 @@ export const findByEmail = async (email) => {
   await adminAuth();
   const users = await kcAdminClient.users.findOne({ email: email });
   console.log(users);
-  if (users.length == 0) {
+  if (users.length == 0 || users[0].email != email) {
     return null;
   }
   return users[0];
