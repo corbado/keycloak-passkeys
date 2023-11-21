@@ -33,13 +33,12 @@ users are integrated using Corbado webhooks while new users are saved without a 
 
 Please follow steps 1-3 on our [Getting started](https://docs.corbado.com/overview/getting-started) page to create and configure a project in the [Corbado developer panel](https://app.corbado.com).
 
-Next, follow steps 4-6 on our [Web component guide](https://docs.corbado.com/integrations/web-component#4.-define-application-url) and set the Application URL to `http://localhost:19915/login`, the Redirect URL to `http://localhost:19915/profile` and the Relying Party ID to `localhost`.
+Next, follow steps 4-6 on our [Web component guide](https://docs.corbado.com/integrations/web-component#4.-define-application-url) and set the Application URL to `http://localhost:3000/login`, the Redirect URL to `http://localhost:3000/profile` and the Relying Party ID to `localhost`.
 
 In the [integration mode settings](https://app.corbado.com/app/settings/integration-mode), make sure you have selected `Web component` as integration mode and selected `Yes` as existing user base.
 
 Lastly, configure the [webhooks](https://app.corbado.com/app/settings/webhooks) as seen in the image:
-<img width="1238" alt="webhooks" src="https://github.com/corbado/example-webcomponent-keycloak/assets/23581140/1acb5ebf-6c05-4f15-9af1-7fadbf29fda8">
-
+<img width="1283" alt="webhooks" src="https://github.com/corbado/example-webcomponent-keycloak/assets/23581140/bba5c3de-0d51-4687-a56f-0250069ddf67">
 
 Use the values you obtained above to configure the following variables inside `.env`:
 The CLI secret is located [here](https://app.corbado.com/app/settings/credentials/cli-secret).
@@ -66,8 +65,8 @@ After step 2.2. your local server should be fully working.
 
 ### 3.1. Test authentication
 
-If you now visit [http://localhost:19915](http://localhost:19915), you should be forwarded to the `/login` page.
+If you now visit [http://localhost:3000](http://localhost:3000), you should be forwarded to the `/login` page.
 
 When authenticated you will be forwarded to the `/profile` page.
 
-You can find the Keycloak Dashboard at [http://localhost:8080/admin/master/console/](http://localhost:8080/admin/master/console/) with username and password both being `admin`. Feel free to navigate to the Users-page and adding some password-based users. If you go back to [http://localhost:19915](http://localhost:19915), you'll be able to login with those users as well as explore the possibilities of passkeys with optimized UI experience.
+You can find the Keycloak Dashboard at [http://localhost:8080/admin/master/console/](http://localhost:8080/admin/master/console/) with username and password both being `admin`. Feel free to navigate to the Users-page and adding some password-based users. If you go back to [http://localhost:3000](http://localhost:3000), you'll be able to login with those users as well as explore the possibilities of passkeys with optimized UI experience.
