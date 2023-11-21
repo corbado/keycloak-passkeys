@@ -22,9 +22,9 @@ users are integrated using Corbado webhooks while new users are saved without a 
 |   ├── services
 |   |   └── userService.js              # Communicates with Keycloak
 |   |
-|   ├── views/pages
-|   |   ├── login.ejs                   # Login page with the webcomponent
-|   |   └── profile.ejs                 # Profile page showing user info
+|   └── views/pages
+|       ├── login.ejs                   # Login page with the webcomponent
+|       └── profile.ejs                 # Profile page showing user info
 ```
 
 ## 2. Setup
