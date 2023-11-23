@@ -62,8 +62,6 @@ docker compose up
 
 After step 2.2. your local server should be fully working.
 
-### 3.1. Test authentication
-
 If you now visit [http://localhost:3000](http://localhost:3000), you should be forwarded to the `/login` page.
 
 When authenticated you will be forwarded to the `/profile` page.
