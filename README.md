@@ -2,6 +2,8 @@
 
 This is a sample implementation of a Keycloak based app with existing users where the Corbado's passkey-first web component is integrated. Keycloak can be kept as existing auth solution, while Corbado handles the passkey authentication part. Existing password-based users from Keycloak are integrated using Corbado webhooks while new users are stored passwordless.
 
+Read the **full tutorial** in our [blog post here](https://www.corbado.com/blog/keycloak-passkeys).
+
 **Note:** In this tutorial, an existing app is created with some pre-existing, password-based users. Have a look at our [docs](https://docs.corbado.com/integrations/web-component/no-existing-user-base) to see the integration if you don't have any users yet.
 
 ## 1. File structure
