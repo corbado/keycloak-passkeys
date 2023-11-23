@@ -1,9 +1,8 @@
-# Complete integration sample for the Corbado web component in Node.js with existing users in Keycloak
+# Keycloak Passkey Node.js Integration Example with Corbado
 
-This is a sample implementation of frontend and backend where the Corbado web component is integrated. The database provider is Keycloak, a popular authentication provider which already contains several password-based users. These
-users are integrated using Corbado webhooks while new users are saved without a password.
+This is a sample implementation of a Keycloak based app with existing users where the Corbado's passkey-first web component is integrated. Keycloak can be kept as existing auth solution, while Corbado handles the passkey authentication part. Existing password-based users from Keycloak are integrated using Corbado webhooks while new users are stored passwordless.
 
-**Note:** In this tutorial a customer system is created with some pre-existing password-based users. Have a look at our [docs](https://docs.corbado.com/integrations/web-component/no-existing-user-base) to see the integration if you don't have any users yet.
+**Note:** In this tutorial, an existing app is created with some pre-existing, password-based users. Have a look at our [docs](https://docs.corbado.com/integrations/web-component/no-existing-user-base) to see the integration if you don't have any users yet.
 
 ## 1. File structure
 
@@ -12,7 +11,7 @@ users are integrated using Corbado webhooks while new users are saved without a 
 ├── .env
 ├── src
 |   ├── controllers
-|   |   ├── authController.js           # renders views and uses Corbado SDK for sessions
+|   |   ├── authController.js           # renders views and uses Corbado SDK for session management
 |   |   └── corbadoWebhookController.js # Takes all requests belonging to the Corbado webhook logic
 |   |
 |   ├── routes
@@ -23,7 +22,7 @@ users are integrated using Corbado webhooks while new users are saved without a 
 |   |   └── userService.js              # Communicates with Keycloak
 |   |
 |   └── views/pages
-|       ├── login.ejs                   # Login page with the webcomponent
+|       ├── login.ejs                   # Login page with the web component
 |       └── profile.ejs                 # Profile page showing user info
 ```
 
