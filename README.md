@@ -1,4 +1,4 @@
-# Keycloak Passkey Node.js Integration Example with Corbado
+# Keycloak Passkey Node.js Integration Example
 
 This is a sample implementation of a Keycloak based app with existing users where the Corbado's passkey-first web component is integrated. Keycloak can be kept as existing auth solution, while Corbado handles the passkey authentication part. Existing password-based users from Keycloak are integrated using Corbado webhooks while new users are stored passwordless.
 
